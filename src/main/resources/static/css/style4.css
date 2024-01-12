@@ -1,0 +1,30 @@
+a:hover{
+	color:black;
+	font-style:bold;
+	background-color:green;
+	}
+	
+	h1{
+	margin-left:660px;
+	margin-top:30px;
+	margin-bottom:50px;
+	font-family: cursive,Georgia,sans-serif;
+	}
+	h2{
+	margin-left:690px;
+	color:white;
+	margin-bottom:50px;
+	font-family: cursive,Georgia,sans-serif;
+	}
+	
+	body{
+	color:black;
+	background-image:url("/Images/usersMu.png");
+	background-repeat:no-repeat;
+	}
+	a{
+	margin-left:745px;
+	text-decoration:none;
+	font-style:bold;
+    color:white;
+		}

@@ -1,0 +1,38 @@
+form{
+	text-align:center;
+	margin:auto ;
+	padding-top:40px;
+	padding-right:10px;
+	padding-left:10px;
+	margin-top:200px;
+	padding-bottom:20px;
+	width:310px;
+	height:310px;
+	color:white;
+	box-sizing:content-box;
+	font-style:italic ;
+	font-family: cursive,Georgia,sans-serif;
+	border:white solid;
+	}
+	label{
+	margin:20px;
+	color:white;
+	}
+	input{
+	margin:10px auto;
+	font-style:italic ;
+	font-family: cursive,Georgia,sans-serif;
+	}
+	
+#btn1:hover{
+	color:black;
+	font-style:bold;
+	background-color:green;
+	}
+	#btn1{
+	margin-top:25px;
+	
+	}
+	body{
+	background-image:url("/Images/musicbg.jpeg");
+	}

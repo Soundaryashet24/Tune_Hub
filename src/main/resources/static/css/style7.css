@@ -1,0 +1,21 @@
+body{
+	background-image:url("/Images/musicbg.jpeg");
+	}
+	
+table{
+	text-align:center;
+	margin:auto ;
+	padding-top:40px;
+	padding-right:10px;
+	padding-left:10px;
+	margin-top:100px;
+	padding-bottom:20px;
+	width:500px;
+	
+	color:white;
+	box-sizing:content-box;
+	font-style:italic ;
+	font-family: cursive,Georgia,sans-serif;
+	border-radius:20px;
+	border: solid white;
+}

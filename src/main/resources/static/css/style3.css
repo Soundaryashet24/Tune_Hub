@@ -1,0 +1,29 @@
+a:hover{
+	color:black;
+	font-style:bold;
+	background-color:green;
+	}
+	
+	h1{
+	margin-left:650px;
+	margin-top:30px;
+	margin-bottom:50px;
+	font-family: cursive,Georgia,sans-serif;
+	}
+	h2{
+	margin-left:670px;
+	
+	margin-bottom:50px;
+	font-family: cursive,Georgia,sans-serif;
+	}
+	
+	body{
+	color:black;
+	background-image:url("/Images/adminMu.jpg");
+	}
+	a{
+	margin-left:685px;
+	text-decoration:none;
+	font-style:bold;
+    color:white;
+		}

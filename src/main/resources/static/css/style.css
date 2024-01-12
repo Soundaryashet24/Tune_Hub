@@ -1,0 +1,19 @@
+body{
+	background-image:url("/Images/FeE9wp.webp");
+	color:white;
+	}
+	
+h1{
+	margin-left:650px;
+	margin-top:150px;
+	margin-bottom:50px;
+	font-family: cursive,Georgia,sans-serif;
+	}
+#btn1{
+	margin-left:690px;
+	margin-right:90px;
+	color:white;
+}
+#btn2{
+	color:white;
+}
