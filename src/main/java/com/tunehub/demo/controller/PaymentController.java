@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
+import com.razorpay.Utils;
 import com.tunehub.demo.entities.Users;
 import com.tunehub.demo.services.UsersService;
 
@@ -24,15 +25,29 @@ public class PaymentController {
 
 	@GetMapping("/pay")
 	public String pay() {
+		
 		return "pay";
+	}
+	
+	@GetMapping("/payment-success")
+	public String paymentSuccess(HttpSession session) {
+		String mail =  (String) session.getAttribute("email");
+		Users u = service.getUser(mail);
+		u.setPremium(true);
+		service.updateUser(u);
+		return "customerHome";
+	}
+	
+	@GetMapping("/payment-failure")
+	public String paymentFailure() {
+		return "customerHome";
 	}
 
 	@SuppressWarnings("finally")
 	@PostMapping("/createOrder")
 	@ResponseBody
-	public String createOrder(HttpSession session) {
+	public String createOrder() {
 
-		
 		int  amount  = 5000;
 		Order order=null;
 		try {
@@ -45,13 +60,7 @@ public class PaymentController {
 
 			order = razorpay.orders.create(orderRequest);
 
-			String mail =  (String) session.getAttribute("email");
 			
-			Users u = service.getUser(mail);
-			u.setPremium(true);
-			service.updateUser(u);
-			
-		
 
 		} catch (RazorpayException e) {
 			e.printStackTrace();
@@ -59,17 +68,24 @@ public class PaymentController {
 		finally {
 			return order.toString();
 		}
+	}	
+	
+	@PostMapping("/verify")
+	@ResponseBody
+	public boolean verifyPayment(@RequestParam  String orderId, @RequestParam String paymentId, @RequestParam String signature) {
+	    try {
+	        // Initialize Razorpay client with your API key and secret
+	        RazorpayClient razorpayClient = new RazorpayClient("rzp_test_OADyRAJUVwONRm", "nkpYxRfam7Y971LqWtRtyjRW");
+	        // Create a signature verification data string
+	        String verificationData = orderId + "|" + paymentId;
+
+	        // Use Razorpay's utility function to verify the signature
+	        boolean isValidSignature = Utils.verifySignature(verificationData, signature, "nkpYxRfam7Y971LqWtRtyjRW");
+
+	        return isValidSignature;
+	    } catch (RazorpayException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
 	}
-	
-//	@GetMapping("/pay")
-//	public String pay(@RequestParam String email) {
-//		boolean paymentStatus=false;//payment api
-//		if(paymentStatus==true) {
-//			Users user=service.getUser(email);
-//			user.setPremium(true);
-//			service.updateUser(user);
-//		}
-//		return "login";
-//	}
-	
 }
