@@ -38,7 +38,7 @@ public class UsersController {
 			System.out.println("User already exists");
 		}
 		
-		return "home";
+		return "login";
 	}
 	
 	@PostMapping("/validate")

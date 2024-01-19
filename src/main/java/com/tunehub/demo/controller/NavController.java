@@ -10,6 +10,11 @@ public class NavController {
 		return "login";
 	}
 	
+	@GetMapping("/index")
+	public String index() {
+		return "index";
+	}
+	
 	@GetMapping("/registration")
 	public String registration() {
 		return "registration";
